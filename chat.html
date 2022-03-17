@@ -1,0 +1,60 @@
+<!DOCTYPE HTML>
+<html lang="ko">
+<head>
+  	<title>문의</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+  	<script src="http://ajax.googleapis.com/ajax/libs/jquery/1.11.1/jquery.min.js"></script>
+   	<script src="/socket.io/socket.io.js"></script>
+    <style>
+    body
+    {
+      background-image: url(chat.png);
+      background-repeat: no-repeat;
+      background-size: cover;}
+    </style>
+  	<script type="text/javascript">
+		window.onload = function(){
+
+			var room = prompt( '방 이름을 입력하세요.', 'room' );
+
+			var socket = io.connect(); //소켓서버 연결
+			socket.emit( 'join', room );
+			socket.on( 'message', function(data){
+				var output = '<p>[' + data.id +']' + data.message + '(' + data.date + ')</p>';
+				$( output ).appendTo('body');
+			});
+
+			$('#button').click(function(){
+				var uid = $('#uid').val();
+				var msg = $('#msg').val();
+
+        if($('#msg').val()=='') {
+          return false;
+        }
+				//서버측 'message' 이벤트를 호출한다. 이때 msg 전달
+        else {
+          socket.emit('message', {
+  					id : uid,
+  					message : msg,
+  					date : new Date().toUTCString()
+  				}); //서버측 'message' 이벤트를 호출한다. 이때 msg 전달
+
+  				var msg = $('#msg').val(''); //메세지 내용 초기화
+        }
+			});
+		};
+	</script>
+</head>
+<body leftmargin="200">
+  <h1><p align="center"><font size=10> SHJ <font color="gray">#</font> HAIR </font></p><h1>
+  <h1 align="center"> 문의</h1><br>
+  <hr color="gray"><br>
+  <h3> 닉네임 </h3>
+  <input type="text" id="uid" />
+  <h3> 메세지 </h3>
+  <input type="text" id="msg" height="200" width="500" />
+  <input type="button" id="button" value="전송" /><br><br>
+  <hr ><br>
+  <div id="content"></div>
+</body>
+</html>

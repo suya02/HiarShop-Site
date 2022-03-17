@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>PRICE</title>
+</head>
+<body bgcolor="white" leftmargin="10" topmargin="50" text="black" align="center">
+  <h1><p align="center"><font size=10> SHJ <font color="gray">#</font> HAIR </font></p><h1>
+  <h1>PRICE</h1><br>
+  <hr /><br><br>
+  <form method="post">
+    <table width="500" height="300" border="1" align="center">
+      <tr>
+        <th bgcolor="#dcdcdc">Name</th>
+        <th bgcolor="#dcdcdc">price</th>
+      </tr>
+      <% data.forEach(function (item, index) { %>
+      <tr>
+        <td><%= item.name %></td>
+        <td><%= item.value %></td>
+      </tr>
+      <% }); %>
+    </table><BR>
+    <input type="submit" value="예약"/>
+  </form>
+  <br><br><br><br><br><br><br>
+  <table bgcolor="#aaaaaa" width="100%" height="200">
+    <tr>
+      <td> <P ALIGN="CENTER"><H7>
+       <FONT SIZE="3"><B>COMPANY INFO</B></FONT><BR><br>
+       <font size="2">OWNER : 류수현 엄혜진 <BR>
+       ADDRESS : 서울특별시 강남구 SHJ빌딩 2층 <BR>
+       E-mail : shjhair@naver.com<BR>
+       TEL : 1688-0000<BR></font>
+       </H7></P></td>
+    </tr>
+  </table>
+</body>
+</html>

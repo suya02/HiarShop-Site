@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>게시글</title>
+</head>
+<body bgcolor="white" leftmargin="10" topmargin="50" text="black" align="center">
+  <table width="100%" style= "background-image: url(notice.png);
+    background-repeat: no-repeat;
+    background-size: cover;">
+    <tr>
+      <td><h1><p align="center"><font size=10> SHJ <font color="gray">#</font> HAIR </font></p><h1>
+      <h1>COMMUNITY</h1><br></td>
+    </tr>
+  </table>
+  <hr /><br><br>
+    <table width="500" height="300" border="1" align="center">
+    <tr height="100">
+      <th align="center" bgcolor="#dcdcdc">NOTICE NUMBER</th>
+      <th align="center" bgcolor="#dcdcdc">NICNAME</th>
+      <th align="center" bgcolor="#dcdcdc">TITLE</th>
+      <th align="center" bgcolor="#dcdcdc">CONTENT</th>
+      <th align="center" bgcolor="#dcdcdc">DELETE</th>
+    </tr>
+    <%data.forEach(function(item, index){%>
+    <tr>
+      <td><%= item.id %></td>
+      <td><%= item.nicname %></td>
+      <td><%= item.title %></td>
+      <td><%= item.content %></td>
+      <td><a href="/delete/<%= item.id %>">DELETE</a></td>
+    </tr>
+    <% }); %>
+  </table><br>
+  <a href="insert">
+ <input type="submit" value="게시글 추가하기"/></input></a>
+ <br><br><br><br><br>
+ <table bgcolor="#aaaaaa" width="100%" height="200">
+   <tr>
+     <td> <P ALIGN="CENTER"><H7>
+      <FONT SIZE="3"><B>COMPANY INFO</B></FONT><BR><br>
+      <font size="2">OWNER : 류수현 엄혜진 <BR>
+      ADDRESS : 서울특별시 강남구 SHJ빌딩 2층 <BR>
+      E-mail : shjhair@naver.com<BR>
+      TEL : 1688-0000<BR></font>
+      </H7></P></td>
+   </tr>
+ </table>
+</body>
+</html>
